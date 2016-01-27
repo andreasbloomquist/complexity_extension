@@ -5,38 +5,38 @@
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
+        font-size: 10px;
+        width: 300px;
+        margin-bottom: 20px;
       }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
+      div{
+        margin: 5px;
       }
     </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
-    <script src="jquery.min.js"></script>
     <script src="popup.js"></script>
   </head>
+  
   <body>
     <div id="status"></div>
-    <img id="image-result" hidden>
-    <div>
-      <button id="current-pg">This pg</button>
+    <div id="top-conainer">
+      <h1>Optly site complexity</h1>
+      <p>
+        Choose 
+          <a id="curr-pg-lnk" href="#">current page</a>, 
+        or other URLs to lookup
+      </p>
+      
     </div>
+    
     <div id="url-form">
       <form>
-        <input>
-        <button type="submit" id="urlSub"></button>
+        <input placeholder="enter URL">
+        <button type="submit" id="urlSub">Analyze</button>
       </form>
     </div>
+    
+    <div id="result"></div>
+
   </body>
 </html>
 
