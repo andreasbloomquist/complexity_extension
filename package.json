@@ -2,7 +2,7 @@
   "name": "complexity_extension",
   "version": "1.0.0",
   "description": "",
-  "main": "jquery.min.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,12 @@
   "dependencies": {
     "body-parser": "^1.14.2",
     "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-require": "^0.1.4",
+    "gulp-uglify": "^1.5.1",
   }
 }
