@@ -31,7 +31,7 @@ function getFormData(callback){
 function getData(url, callback, errorCallback) {
   
   // Temporarily commenting out key until later
-  var key = 'b7012e96-e66d-47af-99d5-00545760acfe';
+  var key = '';
 
   //Using BuiltWith API
   var searchUrl = 'http://api.builtwith.com/v7/api.json?KEY=' + key + '&LOOKUP=builtwith.com';
@@ -54,15 +54,6 @@ function renderStatus(resultText) {
   document.getElementById('result').textContent = resultText;
 }
 
-function renderCallback(url){
-  getData(url, function(response) {
-    renderStatus(JSON.stringify(response.Results[0]));
-    }, function(errorMessage) {
-      renderStatus('Sorry! :( ' + errorMessage);
-    }
-  )
-}
-
 document.addEventListener('DOMContentLoaded', function() {
   var currentPageLink = document.getElementById('curr-pg-lnk'),
       statusEl = document.getElementById('status'),
@@ -73,12 +64,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   currentPageLink.addEventListener('click', function(e){
     e.preventDefault();
-    getCurrentTabUrl(renderCallback(url));
+
+    getCurrentTabUrl(function(url) {
+      getData(url, function(response) {
+        renderStatus(JSON.stringify(response.Results[0]));
+      }, function(errorMessage) {
+        renderStatus('Sorry! :( ' + errorMessage);
+      });
+    });
   });
 
   analyzeSub.addEventListener('click', function(e){
     e.preventDefault();
-    getFormData(renderCallback(url));
+
+    getFormData(function(url) {
+      getData(url, function(response) {
+        renderStatus(JSON.stringify(response.Results[0]));
+      }, function(errorMessage) {
+        renderStatus('Sorry! :( ' + errorMessage);
+      });
+    });
   });
 
 
